@@ -33,5 +33,13 @@ package com.hoten.flashunit {
     public function testAssertEqualsUnequalStringsFail():void {
       expectAssertionError(function():* { assertEquals("Hello", "Bye"); });
     }
+
+    public function testAssertArrayEqualsEqualArraysPasses():void {
+      assertArrayEquals([1, 2, 3], [1, 2, 3]);
+    }
+
+    public function testAssertArrayEqualsUnequalArraysFail():void {
+      expectAssertionError(function():* { assertArrayEquals([1, 2, 3], [1, 2, 4]); });
+    }
   }
 }
