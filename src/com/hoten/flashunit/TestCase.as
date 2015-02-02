@@ -7,15 +7,14 @@ package com.hoten.flashunit {
       }
     }
 
+    public function assertEquals(expected:*, actual:*):void {
+      if (expected != actual) {
+        fail();
+      }
+    }
+
     public function fail(message:String = ""):void {
       throw new AssertionError(message);
     }
-  }
-}
-
-class AssertionError extends Error {
-
-  public function AssertionError(message:String) {
-    super(message);
   }
 }
