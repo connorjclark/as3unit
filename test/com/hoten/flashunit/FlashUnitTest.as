@@ -22,11 +22,11 @@ package com.hoten.flashunit {
       fail("Expected false assert to throw assertion error.");
     }
 
-    public function testAssertEqualsOneAndTwoFails():void {
+    public function testAssertEqualsOneAndTwoFail():void {
       expectAssertionError(function():* { assertEquals(1, 2); });
     }
 
-    public function testAssertEqualsEqualStringsPasses():void {
+    public function testAssertEqualsEqualStringsPass():void {
       assertEquals("Hello", "Hel" + "lo");
     }
 
@@ -34,7 +34,7 @@ package com.hoten.flashunit {
       expectAssertionError(function():* { assertEquals("Hello", "Bye"); });
     }
 
-    public function testAssertArrayEqualsEqualArraysPasses():void {
+    public function testAssertArrayEqualsEqualArraysPass():void {
       assertArrayEquals([1, 2, 3], [1, 2, 3]);
     }
 
