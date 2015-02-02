@@ -1,7 +1,7 @@
 package com.hoten.flashunit {
   public class TestCase {
 
-    public function assertTrue(value:Boolean):void {
+    public function assert(value:Boolean):void {
       if (!value) {
         fail();
       }

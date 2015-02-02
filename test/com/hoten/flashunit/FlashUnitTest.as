@@ -2,7 +2,7 @@ package com.hoten.flashunit {
   public class FlashUnitTest extends TestCase {
 
     public function testCanary():void {
-      assertTrue(true);
+      assert(true);
     }
 
     public function thisIsNotATest():void {
