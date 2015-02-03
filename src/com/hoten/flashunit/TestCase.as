@@ -1,5 +1,6 @@
 package com.hoten.flashunit {
   import mx.utils.StringUtil;
+  import mx.utils.ObjectUtil;
 
   public class TestCase {
 
@@ -23,7 +24,7 @@ package com.hoten.flashunit {
     }
 
     public function assertEquals(expected:*, actual:*):void {
-      if (expected != actual) {
+      if (ObjectUtil.compare(expected, actual) != 0) {
         fail(formatFailure(expected, actual));
       }
     }

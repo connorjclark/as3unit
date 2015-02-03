@@ -43,14 +43,26 @@ package com.hoten.flashunit {
     }
 
     public function testAssertSameSameObjectsPass():void {
-      var obj = { test: "Hello!", test2: 12 };
+      var obj:* = { test: "Hello!", test2: 12 };
       assertSame(obj, obj);
     }
 
     public function testAssertSameDifferentObjectsFail():void {
-      var obj1 = { test: "Hello!", test2: 12 };
-      var obj2 = { test: "Hello!", test2: 12 };
+      var obj1:* = { test: "Hello!", test2: 12 };
+      var obj2:* = { test: "Hello!", test2: 12 };
       expectAssertionError(function():* { assertSame(obj1, obj2); });
+    }
+
+    public function testAssertEqualsEqualObjectsPass():void {
+      var obj1:* = { test: "Hello!", test2: [1, 2, 3] };
+      var obj2:* = { test: "Hello!", test2: [1, 2, 3] };
+      assertEquals(obj1, obj2);
+    }
+
+    public function testAssertEqualsUnequalObjectsFail():void {
+      var obj1:* = { test: "Hello!", test2: [1, 3, 1] };
+      var obj2:* = { test: "Hello!", test2: [1, 2, 1] };
+      expectAssertionError(function():* { assertEquals(obj1, obj2); });
     }
   }
 }
