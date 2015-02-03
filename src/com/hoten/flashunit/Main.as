@@ -49,9 +49,8 @@ package com.hoten.flashunit {
       flattened.sortOn("success").forEach(function(result:*):* {
         outf("{0}: {1}", humanize(result.method.substring(4)), result.success ? "SUCCESS" : "FAILED");
         if (!result.success) {
-          out(result.ex.getStackTrace());
+          out("\t" + result.ex.getStackTrace());
         }
-        out();
       });
     }
 
