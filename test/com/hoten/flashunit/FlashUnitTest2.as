@@ -1,4 +1,6 @@
 package com.hoten.flashunit {
+  import com.hoten.flashunit.TestCase;
+
   public class FlashUnitTest2 extends TestCase {
 
     public function testMultipleTestCases():void {

@@ -1,4 +1,6 @@
 package com.hoten.flashunit {
+  import com.hoten.flashunit.TestCase;
+
   public class FlashUnitTest extends TestCase {
 
     public function testCanary():void {
