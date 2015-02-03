@@ -39,7 +39,7 @@ package com.hoten.flashunit {
       }
     }
 
-    public function assertNotEquals(expected:*, actual:*):void {
+    public function assertNotEquals(unexpected:*, actual:*):void {
       if (deepObjectEqualityCheck(expected, actual)) {
         fail(formatFailure(expected, actual));
       }
@@ -51,9 +51,9 @@ package com.hoten.flashunit {
       }
     }
 
-    public function assertNotSame(expected:*, actual:*):void {
-      if (expected === actual) {
-        fail(formatFailure(expected, actual));
+    public function assertNotSame(unexpected:*, actual:*):void {
+      if (unexpected === actual) {
+        fail(formatFailure(unexpected, actual));
       }
     }
 
