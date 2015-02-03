@@ -39,6 +39,12 @@ package com.hoten.flashunit {
       }
     }
 
+    public function assertSame(expected:*, actual:*):void {
+      if (expected !== actual) {
+        fail(formatFailure(expected, actual));
+      }
+    }
+
     public function fail(message:String = ""):void {
       throw new AssertionError(message);
     }

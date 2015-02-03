@@ -41,5 +41,16 @@ package com.hoten.flashunit {
     public function testAssertArrayEqualsUnequalArraysFail():void {
       expectAssertionError(function():* { assertArrayEquals([1, 2, 3], [1, 2, 4]); });
     }
+
+    public function testAssertSameSameObjectsPass():void {
+      var obj = { test: "Hello!", test2: 12 };
+      assertSame(obj, obj);
+    }
+
+    public function testAssertSameDifferentObjectsFail():void {
+      var obj1 = { test: "Hello!", test2: 12 };
+      var obj2 = { test: "Hello!", test2: 12 };
+      expectAssertionError(function():* { assertSame(obj1, obj2); });
+    }
   }
 }
