@@ -79,16 +79,21 @@ package com.hoten.flashunit {
       callIfExists("setUpClass");
       for each (var method:String in methods) {
         test = new testKlass();
-        callIfExists("setUp");
         var result:Object;
         try {
+          callIfExists("setUp");
           test[method]();
           result = { method: method, success: true }
         } catch (ex:*) {
           result = { method: method, success: false, ex: ex }
+        } finally {
+          try {
+            callIfExists("tearDown");
+          } catch (ex:*) {
+            result = { method: method, success: false, ex: ex }
+          }
         }
         results.push(result);
-        callIfExists("tearDown");
       }
       callIfExists("tearDownClass");
 
