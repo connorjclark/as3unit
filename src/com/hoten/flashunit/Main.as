@@ -34,6 +34,11 @@ package com.hoten.flashunit {
         out(StringUtil.substitute(format, args));
       }
 
+      // http://stackoverflow.com/a/2560017/2788187
+      function humanize(s:String):String {
+        return s.substring(4).replace(/(?<=[A-Z])(?=[A-Z][a-z])|(?<=[^A-Z])(?=[A-Z])|(?<=[A-Za-z])(?=[^A-Za-z])/g, " ");
+      }
+
       var flattened:Array = flatten(testResults);
       var numSuccess:int = flattened.filter(function(result:*):* {
         return result.success;
@@ -43,7 +48,7 @@ package com.hoten.flashunit {
       outf("TESTS = {0} | PASSED = {1} ({2}%)", flattened.length, numSuccess, passRate)
       out();
       flattened.sortOn("success").forEach(function(result:*):* {
-        outf("{0}: {1}", result.method, result.success ? "SUCCESS" : "FAILED");
+        outf("{0}: {1}", humanize(result.method), result.success ? "SUCCESS" : "FAILED");
         if (!result.success) {
           out(result.ex.getStackTrace());
         }
