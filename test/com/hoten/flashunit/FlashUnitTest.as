@@ -34,12 +34,12 @@ package com.hoten.flashunit {
       expectAssertionError(function():* { assertEquals("Hello", "Bye"); });
     }
 
-    public function testAssertArrayEqualsEqualArraysPass():void {
-      assertArrayEquals([1, 2, 3], [1, 2, 3]);
+    public function testAssertEqualsEqualArraysPass():void {
+      assertEquals([1, 2, 3], [1, 2, 3]);
     }
 
-    public function testAssertArrayEqualsUnequalArraysFail():void {
-      expectAssertionError(function():* { assertArrayEquals([1, 2, 3], [1, 2, 4]); });
+    public function testAssertEqualsUnequalArraysFail():void {
+      expectAssertionError(function():* { assertEquals([1, 2, 3], [1, 2, 4]); });
     }
 
     public function testAssertSameSameObjectsPass():void {

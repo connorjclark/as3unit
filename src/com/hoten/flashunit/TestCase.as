@@ -29,38 +29,18 @@ package com.hoten.flashunit {
       }
     }
 
+    private function deepObjectEqualityCheck(obj1:*, obj2:*):Boolean {
+      return ObjectUtil.compare(obj1, obj2) == 0;
+    }
+
     public function assertEquals(expected:*, actual:*):void {
-      if (ObjectUtil.compare(expected, actual) != 0) {
+      if (!deepObjectEqualityCheck(expected, actual)) {
         fail(formatFailure(expected, actual));
       }
     }
 
     public function assertNotEquals(expected:*, actual:*):void {
-      if (ObjectUtil.compare(expected, actual) == 0) {
-        fail(formatFailure(expected, actual));
-      }
-    }
-
-    private function arrayEqualityCheck(arr1:Array, arr2:Array):Boolean {
-      if (arr1.length != arr2.length) {
-        return false;
-      }
-      for (var i:int = 0; i < arr1.length; i++) {
-        if (arr1[i] != arr2[i]) {
-          return false;
-        }
-      }
-      return true;
-    }
-
-    public function assertArrayEquals(expected:Array, actual:Array):void {
-      if (!arrayEqualityCheck(expected, actual)) {
-        fail(formatFailure(expected, actual));
-      }
-    }
-
-    public function assertArrayNotEquals(expected:Array, actual:Array):void {
-      if (arrayEqualityCheck(expected, actual)) {
+      if (deepObjectEqualityCheck(expected, actual)) {
         fail(formatFailure(expected, actual));
       }
     }
