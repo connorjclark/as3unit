@@ -1,7 +1,6 @@
 package com.hoten.flashunit {
   import flash.display.Sprite;
   import flash.events.Event;
-  import flash.external.ExternalInterface;
   import flash.text.TextField;
   import flash.utils.*;
   import mx.utils.StringUtil;
