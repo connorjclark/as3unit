@@ -1,43 +1,17 @@
 package com.hoten.flashunit {
-  import mx.utils.StringUtil;
   import mx.utils.ObjectUtil;
-  import flash.utils.*;
 
   public class TestCase {
 
-    public function prettyObjectToString(obj:*):String {
-      if (obj is Array) {
-        return "[" + obj.toString() + "]";
-      } else {
-        return obj.toString();
-      }
-    }
-
-    public function formatFailureExpected(expected:*, actual:*):String {
-      var format:String = "Expected {0}, actually was {1}";
-      var expectedPretty:String = prettyObjectToString(expected);
-      var actualPretty:String = prettyObjectToString(actual);
-      if (expectedPretty == actualPretty) {
-        expectedPretty = StringUtil.substitute("{0} <{1}>", expectedPretty, getQualifiedClassName(expected));
-        actualPretty = StringUtil.substitute("{0} <{1}>", expectedPretty, getQualifiedClassName(actual));
-      }
-      return StringUtil.substitute(format, expectedPretty, actualPretty);
-    }
-
-    public function formatFailureUnexpected(unexpected:*):String {
-      var format:String = "Did not expect {0}";
-      return StringUtil.substitute(format, prettyObjectToString(unexpected));
-    }
-
     public function assert(value:Boolean):void {
       if (!value) {
-        fail("assert true: " + formatFailureExpected(true, false));
+        throw AssertionError.expected(true, false, "assert true")
       }
     }
 
     public function assertFalse(value:Boolean):void {
       if (value) {
-        fail("assert false: " + formatFailureExpected(false, true));
+        throw AssertionError.expected(false, true, "assert false")
       }
     }
 
@@ -47,29 +21,29 @@ package com.hoten.flashunit {
 
     public function assertEquals(expected:*, actual:*):void {
       if (!deepObjectEqualityCheck(expected, actual)) {
-        fail("assert equals: " + formatFailureExpected(expected, actual));
+        throw AssertionError.expected(expected, actual, "assert equals")
       }
     }
 
     public function assertNotEquals(unexpected:*, actual:*):void {
       if (deepObjectEqualityCheck(unexpected, actual)) {
-        fail("assert not equals: " + formatFailureUnexpected(actual));
+        throw AssertionError.unexpected(actual, "assert not equals")
       }
     }
 
     public function assertSame(expected:*, actual:*):void {
       if (expected !== actual) {
-        fail("assert same: " + formatFailureUnexpected(actual));
+        throw AssertionError.unexpected(actual, "assert same")
       }
     }
 
     public function assertNotSame(unexpected:*, actual:*):void {
       if (unexpected === actual) {
-        fail("assert not same: " + formatFailureUnexpected(actual));
+        throw AssertionError.unexpected(actual, "assert not same")
       }
     }
 
-    public function fail(message:String = ""):void {
+    public function fail(message:String):void {
       throw new AssertionError(message);
     }
   }
