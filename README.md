@@ -16,7 +16,7 @@ In order to use FlashUnit, you need the following installed on your system and i
 
 If you have a 64-bit Java installation as your system's default, you need to do an [extra step](http://tipila.com/tips/79/cannot-find-jvm-error-in-mxmlc-windows-64bit). Simply install a 32-bit version, and add the following line to flex_home/jvm.config:
 ```
-java.home=C:/Progra~2/Java/jre7 (or jreX, X = w/e version of java)
+java.home=location of your 32-bit java installation
 ```
 ### Integrating with your project
 
