@@ -23,25 +23,56 @@ package com.hoten.flashunit {
       }
     }
 
+    public function assertFalse(value:Boolean):void {
+      if (value) {
+        fail(formatFailure(false, true));
+      }
+    }
+
     public function assertEquals(expected:*, actual:*):void {
       if (ObjectUtil.compare(expected, actual) != 0) {
         fail(formatFailure(expected, actual));
       }
     }
 
-    public function assertArrayEquals(expected:Array, actual:Array):void {
-      if (expected.length != actual.length) {
+    public function assertNotEquals(expected:*, actual:*):void {
+      if (ObjectUtil.compare(expected, actual) == 0) {
         fail(formatFailure(expected, actual));
       }
-      for (var i:int = 0; i < expected.length; i++) {
-        if (expected[i] != actual[i]) {
-          fail(formatFailure(expected, actual));
+    }
+
+    private function arrayEqualityCheck(arr1:Array, arr2:Array):Boolean {
+      if (arr1.length != arr2.length) {
+        return false;
+      }
+      for (var i:int = 0; i < arr1.length; i++) {
+        if (arr1[i] != arr2[i]) {
+          return false;
         }
+      }
+      return true;
+    }
+
+    public function assertArrayEquals(expected:Array, actual:Array):void {
+      if (!arrayEqualityCheck(expected, actual)) {
+        fail(formatFailure(expected, actual));
+      }
+    }
+
+    public function assertArrayNotEquals(expected:Array, actual:Array):void {
+      if (arrayEqualityCheck(expected, actual)) {
+        fail(formatFailure(expected, actual));
       }
     }
 
     public function assertSame(expected:*, actual:*):void {
       if (expected !== actual) {
+        fail(formatFailure(expected, actual));
+      }
+    }
+
+    public function assertNotSame(expected:*, actual:*):void {
+      if (expected === actual) {
         fail(formatFailure(expected, actual));
       }
     }

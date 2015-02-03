@@ -64,5 +64,13 @@ package com.hoten.flashunit {
       var obj2:* = { test: "Hello!", test2: [1, 2, 1] };
       expectAssertionError(function():* { assertEquals(obj1, obj2); });
     }
+
+    // negations
+
+    public function testAssertFalseTrueFails():void {
+      expectAssertionError(function():* { assertFalse(true); });
+    }
+
+    // ... skip the rest ...
   }
 }
