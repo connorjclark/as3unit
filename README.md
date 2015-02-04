@@ -32,10 +32,15 @@ ruby flash-unit-release/test.rb
 
 Voila! Your browser will launch and the test results will be on display.
 
-Items to add to your .gitignore:
+If you wish to keep the tool packaged in your project's repo, add these items to add to your .gitignore:
 ```
 flash_unit.swf
 flash_unit.js
+```
+
+Otherwise, add this:
+```
+flash-unit-release/
 ```
 
 ### Writing tests
