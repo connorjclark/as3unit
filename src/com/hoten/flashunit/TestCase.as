@@ -43,6 +43,22 @@ package com.hoten.flashunit {
       }
     }
 
+    public function assertArrayEqualsIgnoreOrder(expected:Array, actual:Array):void {
+      if (expected.length != actual.length) {
+        throw AssertionError.expected(expected, actual, "assert array equals ignore order")
+      }
+
+      var expectedCopy:Array = expected.concat();
+      expectedCopy.sort(ObjectUtil.compare);
+
+      var actualCopy:Array = actual.concat().sort(ObjectUtil.compare);
+      actualCopy.sort(ObjectUtil.compare);
+
+      if (!deepObjectEqualityCheck(expectedCopy, actualCopy)) {
+        throw AssertionError.expected(expected, actual, "assert array equals ignore order")
+      }
+    }
+
     public function fail(message:String):void {
       throw new AssertionError(message);
     }

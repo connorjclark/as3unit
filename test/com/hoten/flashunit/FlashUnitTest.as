@@ -74,5 +74,17 @@ package com.hoten.flashunit {
     }
 
     // ... skip the rest ...
+
+    public function testAssertArrayEqualsIgnoreOrderPositive():void {
+      var arr1:Array = [1, "hello", 100, 12.5];
+      var arr2:Array = [100, "hello", 12.5, 1];
+      assertArrayEqualsIgnoreOrder(arr1, arr2);
+    }
+
+    public function testAssertArrayEqualsIgnoreOrderNegative():void {
+      var arr1:Array = [1, "hello", 127, 12.5];
+      var arr2:Array = [100, "hello", 12.5, 1];
+      expectAssertionError(function():* { assertArrayEqualsIgnoreOrder(arr1, arr2); });
+    }
   }
 }
