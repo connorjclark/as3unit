@@ -19,7 +19,7 @@ test_classes = Dir["../test/**/*.as"].map { |path|
   path.gsub(/..\/test\/(.*).as/, '\1').gsub("/", ".");
 }
 includes = "#{test_classes.map { |e| "-includes=#{e}" }.join " "}"
-run_command "mxmlc -sp src ../test -static-link-runtime-shared-libraries=true src/com/hoten/flashunit/Main.as -output flash_unit.swf -debug=true #{includes}"
+run_command "mxmlc -sp src ../test ../src -static-link-runtime-shared-libraries=true src/com/hoten/flashunit/Main.as -output flash_unit.swf -debug=true #{includes}"
 
 js = "function getClassesToTest(){return \"#{test_classes.join " "}\";}"
 File.write("js/flash_unit.js", js)
