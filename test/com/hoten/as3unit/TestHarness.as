@@ -1,7 +1,7 @@
-package com.hoten.flashunit {
-  import com.hoten.flashunit.TestCase;
+package com.hoten.as3unit {
+  import com.hoten.as3unit.TestCase;
 
-  public class FlashUnitTest2 extends TestCase {
+  public class TestHarness extends TestCase {
 
     public function testMultipleTestCases():void {
     }

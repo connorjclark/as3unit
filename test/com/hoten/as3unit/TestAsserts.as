@@ -1,7 +1,7 @@
-package com.hoten.flashunit {
-  import com.hoten.flashunit.TestCase;
+package com.hoten.as3unit {
+  import com.hoten.as3unit.TestCase;
 
-  public class FlashUnitTest extends TestCase {
+  public class TestAsserts extends TestCase {
 
     public function testCanary():void {
       assert(true);

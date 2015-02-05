@@ -10,7 +10,7 @@ def run_command(command)
   puts "\n"
 end
 
-build_dir = "flash-unit-release"
+build_dir = "as3unit-release"
 
 puts "Cleaning ..."
 run_command "rmdir /S /Q #{build_dir}"

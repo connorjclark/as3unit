@@ -1,4 +1,4 @@
-package com.hoten.flashunit {
+package com.hoten.as3unit {
   import flash.display.Sprite;
   import flash.events.Event;
   import flash.text.TextField;

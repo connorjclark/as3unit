@@ -1,4 +1,4 @@
-package com.hoten.flashunit {
+package com.hoten.as3unit {
   import mx.utils.StringUtil;
   import mx.utils.ObjectUtil;
   import flash.utils.*;

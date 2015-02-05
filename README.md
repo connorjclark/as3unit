@@ -1,13 +1,13 @@
-# FlashUnit
+# AS3Unit
 
-FlashUnit is a unit testing framework for Flash.
+AS3Unit is a unit testing framework for ActionScript / Flash.
 
   - Automate your unit testing
   - Minimal set up
 
 ### Installation
 
-In order to use FlashUnit, you need the following installed on your system and in your ENV variable:
+In order to use AS3Unit, you need the following installed on your system and in your ENV variable:
 
 - [Ruby](https://www.ruby-lang.org/en/downloads/)
 - [Adobe Flex](http://www.adobe.com/devnet/flex/flex-sdk-download.html)*
@@ -20,7 +20,7 @@ java.home=location of your 32-bit java installation
 ```
 ### Integrating with your project
 
-Now, pull the latest version of FlashUnit's .git repo, and type this in the command line:
+Now, pull the latest version of AS3Unit's .git repo, and type this in the command line:
 ```
 ruby build.rb
 ```
@@ -34,24 +34,24 @@ Voila! Your browser will launch and the test results will be on display.
 
 If you wish to keep the tool packaged in your project's repo, add these items to add to your .gitignore:
 ```
-flash_unit.swf
-flash_unit.js
+as3unit.swf
+as3unit.js
 ```
 
 Otherwise, add this:
 ```
-flash-unit-release/
+as3unit-release/
 ```
 
 ### Writing tests
 
-Check out the [tests](test/) for FlashUnit to get an idea of how to make a unit test in FlashUnit. A quick rundown:
+Check out the [tests](test/) for AS3Unit to get an idea of how to make a unit test in AS3Unit. A quick rundown:
  * Put all of your tests in a directory called tests/ in the SAME FOLDER as the directory flash-unit-release/
  * Every class in tests/ will be run as test cases. For your test case, extend TestCase.
  * Only methods starting with 'test' will be run
  * The available assert methods are like those in any other unit testing framework.
  * ex: assert, assertFalse, assertEquals, assertSame, assertNotEquals, assertNotSame, fail
- * helper methods: setUp, tearDown, setUpClass, tearDownClass. Simply define them in your test case, or don't. FlashUnit doesn't care.
+ * helper methods: setUp, tearDown, setUpClass, tearDownClass. Simply define them in your test case, or don't. AS3Unit doesn't care.
 
 ### Development
 

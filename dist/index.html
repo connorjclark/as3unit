@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>FlashUnit</title>
+    <title>AS3Unit</title>
     <style type="text/css" media="screen">
       body { margin:0; text-align:center; }
       div#content { text-align:left; }
       object#content { display:inline; }
     </style>  
     <script src="js/swfobject.js"></script>
-    <script src="js/flash_unit.js"></script>
+    <script src="js/as3unit.js"></script>
 
     <!-- Flash -->
     <script type="text/javascript">
@@ -28,11 +28,11 @@
         };
 
         var attributes = {
-          id: "flash_unit"
+          id: "as3unit"
         };
 
         swfobject.embedSWF(
-            "flash_unit.swf",
+            "as3unit.swf",
             "flashDiv", "1000px", "500px", "10.0.0",
             "expressInstall.swf",
             flashvars, params, attributes);
@@ -40,7 +40,7 @@
     </script>
   </head>
   <body>
-    <p class="header"><span>FlashUnit</span></p>
+    <p class="header"><span>AS3Unit</span></p>
     <div class="content">
       <div id="flashDiv">
         <p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
