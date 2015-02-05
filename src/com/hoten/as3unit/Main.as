@@ -115,7 +115,7 @@ package com.hoten.as3unit {
     private function flatten(arrays:Array):Array {
       var result:Array = [];
       for (var i:int=0; i < arrays.length; i++){
-        result = result.concat(arrays[i]);
+        result.push.apply(null, arrays[i]);
       }
       return result;
     }
