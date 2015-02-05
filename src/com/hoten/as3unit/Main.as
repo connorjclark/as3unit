@@ -1,7 +1,7 @@
 package com.hoten.as3unit {
-  import flash.display.Sprite;
+  import flash.display.*;
   import flash.events.Event;
-  import flash.text.TextField;
+  import flash.text.*;
   import flash.utils.*;
   import mx.utils.StringUtil;
 
@@ -9,6 +9,8 @@ package com.hoten.as3unit {
     public var tf:TextField = new TextField();
 
     public function Main():void {
+      stage.scaleMode = StageScaleMode.NO_SCALE;
+      stage.align = StageAlign.TOP_LEFT;
       addEventListener(Event.ADDED_TO_STAGE, init);
     }
 
@@ -17,8 +19,11 @@ package com.hoten.as3unit {
 
       tf.x = 0;
       tf.y = 0;
-      tf.width = 500;
-      tf.height = 500;
+      tf.width = stage.stageWidth;
+      tf.height = stage.stageHeight;
+      var format:TextFormat = new TextFormat();
+      format.size = 18;
+      tf.defaultTextFormat = format;
       addChild(tf);
 
       displayResults(runTests());
