@@ -1,9 +1,11 @@
 package com.hoten.as3unit {
-  import com.hoten.as3unit.TestCase;
+  import com.hoten.as3unit.asserts;
+  use namespace asserts;
 
-  public class TestAsserts extends TestCase {
+  public class TestAsserts {
 
     public function testCanary():void {
+      Assert;
       assert(true);
     }
 

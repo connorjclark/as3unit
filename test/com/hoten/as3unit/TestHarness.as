@@ -1,7 +1,8 @@
 package com.hoten.as3unit {
-  import com.hoten.as3unit.TestCase;
+  import com.hoten.as3unit.asserts;
+  use namespace asserts;
 
-  public class TestHarness extends TestCase {
+  public class TestHarness {
 
     public function testMultipleTestCases():void {
     }

@@ -15,7 +15,7 @@ if cur_dir_name != "as3unit-release"
   Dir.chdir "as3unit-release"
 end
 
-test_classes = Dir["../test/**/*.as"].map { |path|
+test_classes = (Dir["../test/**/*.as"] + ["com.hoten.as3unit.Assert"]).map { |path|
   path.gsub(/..\/test\/(.*).as/, '\1').gsub("/", ".");
 }
 includes = "#{test_classes.map { |e| "-includes=#{e}" }.join " "}"
