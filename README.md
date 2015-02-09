@@ -46,7 +46,7 @@ as3unit-release/
 ### Writing tests
 
 Check out the [tests](test/) for AS3Unit to get an idea of how to make a unit test in AS3Unit. A quick rundown:
- * Put all of your tests in a directory called tests/ in the SAME FOLDER as the directory flash-unit-release/
+ * Put all of your tests in a directory called tests/ in the SAME FOLDER as the directory as3unit-release/
  * Every class in tests/ will be run as test cases. For your test case, extend TestCase.
  * Only methods starting with 'test' will be run
  * The available assert methods are like those in any other unit testing framework.
